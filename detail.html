@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8">
   <title>element-ui</title>
@@ -71,7 +70,6 @@
   /rent/object/conditions 租金
   /repair/object/conditions 用户报修
 -->
-
 <body>
   <div class="header row">
     <div class="title column left">共享冰箱</div>
@@ -133,7 +131,6 @@
           </el-submenu>
         </el-menu>
       </el-col>
-
       <el-container v-show="currentTab=='1-1'">
         <el-header style="width:100%;text-align: right; font-size: 14px; line-height: 40px;
                 height: 40px;">
@@ -157,7 +154,6 @@
           <el-input v-model="account.new_paynumber" placeholder="支付流水号"></el-input>
           <el-input v-model="account.new_deviceid" placeholder="对应设备编号"></el-input>
           <el-input v-model="account.new_deviceposition" placeholder="对应设备位置"></el-input>
-
           <!--日期选择-->
           <template>
             <div class="block" style="display:inline-block; margin-left: 30px;">
@@ -255,7 +251,6 @@
               </el-table-column>
             </el-table>
           </template>
-
           <!--
                   <el-table :data="tableData" height="200" max-height="600" :default-sort="{prop:'date',order:'descending'}">
                       <template scope="scope">
@@ -474,7 +469,6 @@
               :page-sizes="[5,10,15,20]" :page-size="100" layout="total,sizes,prev,pager,next,jumper" :total="totalSize_device">
             </el-pagination>
           </div>
-
         </el-main>
       </el-container>
       <!--押金明细-->
@@ -511,7 +505,6 @@
                 <span v-show="scope.row.isShow">{{scope.row.total}}</span>
                 <el-input v-show="!scope.row.isShow" v-model="scope.row.total"></el-input>
               </template>
-
             </el-table-column>
             <el-table-column label="是否有申请退还押金需求" width="200" sortable prop="applyreturn">
               <template slot-scope="scope" width="200">
@@ -720,7 +713,6 @@
   </div>
 </body>
 <script>
-
   var Main = {
     data() {
       const item = {
@@ -992,12 +984,8 @@
       //  }  
       // });
       //用户管理-用户账户
-
-
     },
     watch: {
-
-
     },
     methods: {
       //调整每页条数
@@ -1023,7 +1011,6 @@
         if (this.currentTab == '4-1') {
          // this.getUserRepair();
         }
-
       },
       //调整页面页数
       handleCurrentChange(val) {
@@ -1091,7 +1078,6 @@
             paynumber: self.account.new_paynumber,
             deviceid: self.account.new_deviceid,
             deviceposition: self.account.new_deviceposition
-
           }
         })
           .then(function (res) {
@@ -1143,16 +1129,13 @@
         })
         .then(function(res){
           for(let i=0;i<res.data.length;i++){
-
           let selfData=res.data[i];
           arr.push(selfData);
           self.tableData1=arr;
           self.totalSize_user=res.data.length;
           console.log(self.tableData1);
-
           }
         })
-
      /*   axios.get('http://192.168.2.178:8080/userinfo/object/conditions', {
           params: {
             page: self.page,
@@ -1320,11 +1303,7 @@
               self.totalSize_repair = res.data.length;
             }
         })
-          
-
-
       },
-
       //用户账户查询
       select_account(index) {
         this.getUserAccount();
@@ -1397,16 +1376,12 @@
               self.tableData = [];
               self.totalSize_user = 0;
             }
-
           })
-
-
       },
       getTime(val) {
         //this.date1=val;
         console.log(val);
         //console.log(this.date1);
-
       },
       //展开表格
       formatter(row, column) {
@@ -1431,15 +1406,12 @@
             paytime: this.account.new_paytime,
             expirytime: this.account.new_expirytime,
             isShow: true,
-
           })
           this.$message({
             type: 'success',
             message: '添加成功!'
           });
         }
-
-
       },
       //新增用户信息
       add_user() {
@@ -1461,7 +1433,6 @@
         } else {
           alert("请填写手机号");
         }
-
       },
       //新增设备管理
       add_device() {
@@ -1484,7 +1455,6 @@
         } else {
           alert("冰箱号不能为空");
         }
-
       },
       //新增押金明细
       add_deposit() {
@@ -1499,7 +1469,6 @@
             isapproved: this.financical_deposit.new_isapproved,
             isreturned: this.financical_deposit.new_isreturned,
             isShow: true,
-
           })
           this.$message({
             type: 'success',
@@ -1508,7 +1477,6 @@
         } else {
           alert('手机号不能为空');
         }
-
       },
       //新增租金明细
       add_rent() {
@@ -1526,7 +1494,6 @@
         } else {
           alert("手机号码不能为空");
         }
-
       },
       //新增工单管理
       add_manage() {
@@ -1543,7 +1510,6 @@
             handlerphone: this.orderMangement.new_handlerphone,
             reportfeedback: this.orderMangement.new_reportfeedback,
             isShow: true
-
           })
           this.$message({
             type: 'success',
@@ -1571,8 +1537,6 @@
             message: '已取消删除'
           });
         });
-
-
       },
       //删除用户信息
       deleteUser(index, row) {
@@ -1592,8 +1556,6 @@
             message: '已取消删除'
           });
         });
-
-
       },
       //删除设备信息
       deleteDevice(index, row) {
@@ -1632,7 +1594,6 @@
             message: '已取消删除'
           });
         });
-
       },
       //删除租金信息
       deleteRent(index, row) {
@@ -1652,7 +1613,6 @@
             message: '已取消删除'
           });
         });
-
       },
       //删除工单信息
       deleteOrder(index, row) {
@@ -1672,7 +1632,6 @@
             message: '已取消删除'
           });
         });
-
       },
       //编辑用户信息
       handleEdit(index, row) {
@@ -1686,13 +1645,9 @@
           })
         }
       },
-
     }
-
   };
  var Ctor = Vue.extend(Main)
   new Ctor().$mount('#app')
 </script>
-
-
 </html>

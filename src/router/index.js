@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import login from '@/components/login'
 import index from '@/components/index'
 import search from '@/components/search'
 import student from '@/components/student'
@@ -13,6 +14,11 @@ export default new Router({
       path: '/',
       name: 'index',
       component: index
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: login
     },
     {
       path: '/search',

@@ -102,4 +102,7 @@ export default {
 .ivu-tabs-nav .ivu-tabs-tab-active:hover {
   color: rgb(242, 181, 182);
 }
+.ivu-carousel:hover .ivu-carousel-arrow-hover {
+  opacity: 0;
+}
 </style>

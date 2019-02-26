@@ -18,13 +18,9 @@
           </div>
         </CarouselItem>
       </Carousel>
-<<<<<<< HEAD
-      <div class="searchBox left">
-=======
-      <div class="searchBox left" @focus="goSearch">
->>>>>>> 482d8103a4802d03c3e2e7b8e1c54ac53ac04292
+      <div class="searchBox left" >
         <img src="../assets/search.png">
-        <input type="text" placeholder="搜索课程、机构">
+        <input type="text" placeholder="搜索课程、机构" @focus="goSearch">
       </div>
       <!--<div class="carlenda right">
         <img src="../assets/carlendar2.png">
@@ -61,14 +57,6 @@
       </div>
       <div class="activity_container">
         <div class="activity_img left">
-<<<<<<< HEAD
-          <img src="../assets/activity1.png">
-        </div>
-        <div class="activity_img left">
-          <img src="../assets/activity2.png">
-        </div>
-        <div class="activity_img left">
-=======
           <p class="activity_img_title">标题标题标题</p>
           <p class="activity_img_info">描述描述描述</p>
           <img src="../assets/activity1.png">
@@ -81,7 +69,6 @@
         <div class="activity_img left">
           <p class="activity_img_title">标题标题标题</p>
           <p class="activity_img_info">描述描述描述</p>
->>>>>>> 482d8103a4802d03c3e2e7b8e1c54ac53ac04292
           <img src="../assets/activity1.png">
         </div>
         <div style="clear:both;"></div>
@@ -111,37 +98,6 @@
     </div>
     <p class="checkMore">查看更多机构</p>
     <div class="footer">
-<<<<<<< HEAD
-      <div class="leftBtn left">
-        <div class="btnImg">
-          <img src="../assets/footer_11.png">
-        </div>
-        <p>首页</p>
-      </div>
-      <div class="leftBtn left">
-        <div class="btnImg">
-          <img src="../assets/footer_21.png">
-        </div>
-        <p>更多课程</p>
-      </div>
-      <div class="leftBtn left">
-        <div class="btnImg">
-          <img src="../assets/footer_31.png">
-        </div>
-        <p>咨询</p>
-      </div>
-      <div class="leftBtn left">
-        <div class="btnImg">
-          <img src="../assets/footer_41.png">
-        </div>
-        <p>咨询</p>
-      </div>
-      <div class="leftBtn left">
-        <div class="btnImg">
-          <img src="../assets/footer_51.png">
-        </div>
-        <p>咨询</p>
-=======
       <div
         class="leftBtn left"
         v-for="(item,index) in items"
@@ -156,14 +112,12 @@
         </div>
         <p class="current" v-show="item.isCurrent">{{item.text}}</p>
         <p v-show="!item.isCurrent">{{item.text}}</p>
->>>>>>> 482d8103a4802d03c3e2e7b8e1c54ac53ac04292
       </div>
     </div>
   </div>
 </template>
 <script>
 export default {
-  name: "HelloWorld",
   data() {
     return {
       value: 0,
@@ -288,8 +242,6 @@ export default {
           icon: "../static/footer5.png",
           text: "我的"
         }
-<<<<<<< HEAD
-=======
       ],
       items: [
         {
@@ -327,7 +279,6 @@ export default {
           text: "我的",
           isCurrent: false
         }
->>>>>>> 482d8103a4802d03c3e2e7b8e1c54ac53ac04292
       ]
     };
   },
@@ -465,11 +416,7 @@ export default {
   width: 40%;
   height: 4rem;
   margin-left: 5%;
-<<<<<<< HEAD
-=======
   position: relative;
->>>>>>> 482d8103a4802d03c3e2e7b8e1c54ac53ac04292
-
   overflow: hidden;
 }
 .activity_img > img {
@@ -625,11 +572,7 @@ export default {
 }
 .leftBtn {
   width: 20%;
-<<<<<<< HEAD
-  height: 3rem;
-=======
   height: 3.5rem;
->>>>>>> 482d8103a4802d03c3e2e7b8e1c54ac53ac04292
   text-align: center;
   background-color: #fff;
   overflow: hidden;
@@ -646,12 +589,8 @@ export default {
 }
 .btnImg {
   width: 100%;
-<<<<<<< HEAD
-  height: 2rem;
-=======
   height: 1.8rem;
   margin-top: 5px;
->>>>>>> 482d8103a4802d03c3e2e7b8e1c54ac53ac04292
   padding-bottom: 3rem solid #eee;
   overflow: hidden;
   display: flex;
@@ -661,16 +600,14 @@ export default {
   font-size: 11px;
   line-height: 1.2rem;
 }
-<<<<<<< HEAD
 .btnImg > img {
   width: 42%;
-=======
+}
 .leftBtn .current {
   color: rgb(62, 186, 69);
 }
 .btnImg > img {
   width: 37%;
->>>>>>> 482d8103a4802d03c3e2e7b8e1c54ac53ac04292
 }
 .course_img_training > img {
   width: 75%;
@@ -682,15 +619,10 @@ export default {
 .checkMore {
   text-align: center;
   margin-top: 1rem;
-<<<<<<< HEAD
   margin-bottom: 4rem;
   line-height: 2rem;
   background: #fff;
-}
-=======
-  margin-bottom: 5rem;
-  line-height: 2rem;
-  background: #fff;
+
 }
 .activity_container {
   position: relative;
@@ -714,5 +646,5 @@ export default {
   top: 30px;
   font-size: 8px;
 }
->>>>>>> 482d8103a4802d03c3e2e7b8e1c54ac53ac04292
+
 </style>

@@ -71,7 +71,7 @@ export default {
 }
 .back {
   position: absolute;
-  margin-top: 13px;
+  margin-top: 4px;
   margin-left: 10px;
   color: rgb(26, 188, 156);
 }

@@ -105,4 +105,7 @@ export default {
 .ivu-carousel:hover .ivu-carousel-arrow-hover {
   opacity: 0;
 }
+.margin{
+  margin: 10px;
+}
 </style>

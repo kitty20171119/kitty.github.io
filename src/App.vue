@@ -69,7 +69,7 @@ export default {
   display: flex;
   align-items: center;
 }
-.more>img{
+.more > img {
   width: 55%;
 }
 .ivu-icon {
@@ -105,7 +105,25 @@ export default {
 .ivu-carousel:hover .ivu-carousel-arrow-hover {
   opacity: 0;
 }
-.margin{
+.margin {
   margin: 10px;
+}
+/*顶部导航样式*/
+.tabBar {
+  width: 100%;
+  background: #fff;
+  height: 2rem;
+  line-height: 2rem;
+  padding-left: 5%;
+  font-size: 13px;
+}
+.classify {
+  color: #999;
+  margin: 0 10px;
+}
+.classify.current{
+  color: rgb(62,186,69);
+  padding-bottom: 3px;
+  border-bottom: 2px solid rgb(62,186,69);
 }
 </style>

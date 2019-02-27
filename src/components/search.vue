@@ -205,11 +205,11 @@ export default {
   margin-right: 5%;
 }
 .classInfo > p {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: bold;
 }
 .tags {
-  margin-top: 5px;
+  margin-top: 15px;
 }
 .tags > .training {
   width: 1rem;
@@ -226,7 +226,7 @@ export default {
   color: #999;
 }
 .footer_bottom > .left {
-  font-size: 15px;
+  font-size: 13px;
 }
 .currentPrice {
   font-size: 15px;
@@ -234,6 +234,7 @@ export default {
 }
 .oldPrice {
   font-size: 13px;
+  margin-top: 2px;
 }
 .margin {
   margin: 10px 0;

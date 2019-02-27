@@ -45,7 +45,11 @@
   </div>
 </template>
 <script>
-export default{
+import tabBar from "../components/common/tabBar" 
+export default {
+    components:{
+        tabBar
+    },
     data () {
         return {
             tabBars:[
@@ -95,6 +99,8 @@ export default{
                 }
             ]
         }
+    },
+    mounted:function(){
     },
     methods:{
         changeStyle(index){

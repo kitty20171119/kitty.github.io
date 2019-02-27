@@ -9,10 +9,17 @@ import courseList from '@/components/courseList'
 import courseDetail from '@/components/courseDetail'
 import parents from '@/components/parents'
 import messageDetail from '@/components/messageDetail'
+import organizationDetail from '@/components/organizationDetail'
+import tabBar from '@/components/common/tabBar'
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path:'/tabBar',
+      name:'tabBar',
+      component:tabBar
+    },
     {
       path: '/',
       name: 'index',
@@ -57,6 +64,11 @@ export default new Router({
       path: '/messageDetail',
       name: 'messageDetail',
       component: messageDetail
+    },
+    {
+      path: '/organizationDetail',
+      name: 'organizationDetail',
+      component: organizationDetail
     }
   ]
 })

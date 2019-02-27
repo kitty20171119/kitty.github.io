@@ -112,8 +112,8 @@ export default {
 .tabBar {
   width: 100%;
   background: #fff;
-  height: 2rem;
-  line-height: 2rem;
+  height: 1rem;
+  line-height: 1rem;
   padding-left: 5%;
   font-size: 13px;
 }
@@ -121,9 +121,38 @@ export default {
   color: #999;
   margin: 0 10px;
 }
-.classify.current{
-  color: rgb(62,186,69);
-  padding-bottom: 3px;
-  border-bottom: 2px solid rgb(62,186,69);
+.threeItem {
+  width: 33.3%;
+  display: block;
+  float: left;
+  text-align: center;
+  margin: 0;
+  padding:0;
+}
+.classify.current {
+  color: rgb(62, 186, 69);
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgb(62, 186, 69);
+}
+/*底部导航样式*/
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 3rem;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    line-height: 3rem;
+}
+.leftBtn,.rightBtn{
+  width: 50%;
+  text-align: center;
+}
+.leftBtn{
+  color: rgb(74,211,85);
+}
+.rightBtn{
+  background-color: rgb(74,211,85);
+  color: #fff;
 }
 </style>

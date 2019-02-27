@@ -216,4 +216,5 @@ export default {
     padding: 5px;
     border-radius: 2px;
 }
+
 </style>

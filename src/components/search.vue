@@ -102,6 +102,7 @@
 </template>
 <script>
 export default {
+  name:'student',
   data() {
     return {
       organizations: [

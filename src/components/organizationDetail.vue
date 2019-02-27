@@ -25,100 +25,17 @@
         </div>
       </div>
       <div class="tabBar">
-        <span
+        <router-link
           class="classify threeItem"
           v-bind:class="item.class"
           @click="changeStyle(item.index)"
           :key="item.id"
+          :to="item.path"
           v-for="item in tabBars"
-        >{{item.text}}</span>
+        >{{item.text}}</router-link>
       </div>
       <Divider></Divider>
-      <div class="education_content">
-        <p class="education_title">视频</p>
-        <div class="education_container">
-          <div class="education_item" v-for="item in videos" :key="item.id">
-            <img v-bind:src="item.src">
-          </div>
-        </div>
-      </div>
-      <div class="education_content">
-        <p class="education_title">相册</p>
-        <div class="education_container">
-          <div class="education_item" v-for="item in images" :key="item.id">
-            <img v-bind:src="item.src">
-          </div>
-        </div>
-      </div>
-      <div class="education_content content_height">
-        <p class="education_title">介绍</p>
-        <p class="listItem">
-          <span class="left label">名称:</span>
-          <span class="left info">湖南向导教育管理有限公司</span>
-        </p>
-        <p class="listItem">
-          <span class="left label">地点:</span>
-          <span class="left info">张家界</span>
-        </p>
-        <p class="listItem listItemHeight">
-          <span class="left label">简介:</span>
-          <span class="left info">机构简介文本内容机构简介文本内容机构简介文本内容机构简介文本内容机构简介文本内容机构简介文本内容机构简介文本内容</span>
-        </p>
-      </div>
-      <div class="education_content">
-        <p class="education_title">综合评分</p>
-        <div class="flex scoreContainer">
-          <div class="left scoreLeft">
-            <div class="circle">
-              <img src="../assets/score.png">
-            </div>
-            <p class="totalScore">综合评分</p>
-          </div>
-          <div class="textScore">
-            <p>教学环境</p>
-            <p>专业水平</p>
-            <p>教学水平</p>
-            <p>服务态度</p>
-          </div>
-          <div class="scoreProgress">
-            <img src="../assets/progress.png">
-            <img src="../assets/progress.png">
-            <img src="../assets/progress.png">
-            <img src="../assets/progress.png">
-          </div>
-          <div class="right scoreItem">
-            <p>4.8</p>
-            <p>4.8</p>
-            <p>4.8</p>
-            <p>4.8</p>
-          </div>
-        </div>
-      </div>
-      <Divider></Divider>
-      <div class="comment_container">
-        <p class="comment">评论</p>
-        <div class="comment_item">
-          <div class="comment_userInfo">
-            <div class="left">
-              <div class="userAvatar left">
-                <img src="../assets/avatar1.png">
-              </div>
-              <span class="name left">丽丽</span>
-              <span class="grade left">
-                <img src="../assets/grade.png">
-              </span>
-            </div>
-            <div class="right">
-              <span class="right">2019/01/04</span>
-            </div>
-            <div style="clear:both;"></div>
-          </div>
-          <div class="commentInfo">
-            <p>评论文案内容评论文案内容评论方案内容评论方案内容评论方案内容评论方案</p>
-          </div>
-          <Divider></Divider>
-        </div>
-      </div>
+      <router-view></router-view>
       <div class="footer">
         <div class="leftBtn left">评价</div>
         <div class="rightBtn right">咨询</div>
@@ -127,46 +44,34 @@
   </div>
 </template>
 <script>
+import brifeIntroduction from "@/components/brifeIntroduction";
+import curriculumActivity from "@/components/curriculumActivity";
 export default {
+  name: "organizationDetail",
+  components: {
+    brifeIntroduction,
+    curriculumActivity
+  },
   data() {
     return {
       tabBars: [
         {
           index: 0,
           text: "简介",
-          class: "current"
+          class: '',
+          path: "/brifeIntroduction"
         },
         {
           index: 1,
           text: "课程",
-          class: ""
+          class: "",
+          path: "/curriculumActivity"
         },
         {
           index: 2,
           text: "活动",
-          class: ""
-        }
-      ],
-      videos: [
-        {
-          src: "../../static/shipin.png"
-        },
-        {
-          src: "../../static/shipin.png"
-        },
-        {
-          src: "../../static/shipin.png"
-        },
-        {
-          src: "../../static/shipin.png"
-        }
-      ],
-      images: [
-        {
-          src: "../../static/shipin.png"
-        },
-        {
-          src: "../../static/shipin.png"
+          class: "",
+          path: "/student"
         }
       ]
     };
@@ -365,8 +270,8 @@ export default {
   align-items: center;
   margin-top: 10px;
 }
-.comment_userInfo>.left{
-    width: 50%;
+.comment_userInfo > .left {
+  width: 50%;
 }
 .comment_userInfo > .right {
   width: 50%;

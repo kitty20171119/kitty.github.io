@@ -2,11 +2,13 @@
   <div class="student">
     <div class="head">
       <div class="back">
-        <span>&lt;</span>返回
+        <span class="left">&lt;</span>
+        <span class="back_text left">返回</span>
+        <div style="clear:both;"></div>
       </div>
-      <p class="title">学生档案</p>
+      <p class="head_title">学生档案</p>
     </div>
-    <div class="content">
+    <div class="content_student">
       <div class="pass clean">跳过</div>
       <div class="clear:both;"></div>
       <div class="content_title">请选择你关注的学习阶段</div>
@@ -57,29 +59,45 @@ export default {
       this.btns[id].isCurrent = true;
     }
   },
-  goMyTest(){
-  }
+  goMyTest() {}
 };
 </script>
 <style>
-.content {
+.content_student {
   background: #fff;
   position: fixed;
   width: 100%;
   height: 100%;
   overflow: scroll;
 }
+.head {
+  height: 2rem;
+  line-height: 2rem;
+}
 .back {
   position: absolute;
-  margin-top: 4px;
+  width: 30px;
+  float: left;
   margin-left: 10px;
   color: rgb(26, 188, 156);
 }
-.back > span {
-  font-size: 18px;
+.back >.left {
+  font-size: 20px;
   margin-right: 5px;
+  display: block;
+  width: 35px;
+  height: 10px;
 }
-.head > .title {
+.back>.back_text {
+  width: 50px;
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 13px;
+  float: left;
+  margin-left: 13px;
+  margin-top: -9px;
+}
+.head > .head_title {
   text-align: center;
   background: rgb(242, 242, 242);
 }
@@ -121,9 +139,9 @@ export default {
   width: 80%;
   background: rgb(255, 108, 0);
 }
-@media screen and (max-height:480px){
-    .nextBtn{
-        margin-top: 3rem;
-    }
+@media screen and (max-height: 480px) {
+  .nextBtn {
+    margin-top: 3rem;
+  }
 }
 </style>

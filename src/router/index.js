@@ -10,15 +10,18 @@ import courseDetail from '@/components/courseDetail'
 import parents from '@/components/parents'
 import messageDetail from '@/components/messageDetail'
 import organizationDetail from '@/components/organizationDetail'
+import brifeIntroduction from '@/components/brifeIntroduction'
 import tabBar from '@/components/common/tabBar'
+import activityThree from '@/components/activityThree'
+import curriculumActivity from '@/components/curriculumActivity'
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path:'/tabBar',
-      name:'tabBar',
-      component:tabBar
+      path: '/tabBar',
+      name: 'tabBar',
+      component: tabBar
     },
     {
       path: '/',
@@ -68,7 +71,24 @@ export default new Router({
     {
       path: '/organizationDetail',
       name: 'organizationDetail',
-      component: organizationDetail
+      component: organizationDetail,
+      children:[
+        {
+          path:'/brifeIntroduction',
+          name:'BrifeIntroduction',
+          component:brifeIntroduction
+        },
+        {
+          path:'/curriculumActivity',
+          name:'curriculumActivity',
+          component:curriculumActivity
+        }
+      ]
+    },
+    {
+      path: '/activityThree',
+      name: 'activityThree',
+      component: activityThree
     }
   ]
 })

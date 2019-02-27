@@ -5,7 +5,7 @@
         <Icon type="ios-arrow-back"/>
         <span></span>
       </span>
-      <p class="center bgWhite">课程详情</p>
+      <p class="center bgWhite">活动详情</p>
       <span class="more">
           <img src="../assets/xing2.png"/>
       </span>
@@ -46,20 +46,43 @@
       <p class="right signup">已报名124人</p>
       <div style="clear:both;"></div>
     </div>
-  <!--<div class="courseView">      
+    <div class="courseView">      
       <div style="clear:both;"></div>
-    </div>-->
-      <div class="tabBar">
-        <span
-          class="classify threeItem"
-          v-bind:class="item.class"
-          @click="changeStyle(item.index)"
-          :key="item.id"
-          v-for="item in tabBars"
-        >{{item.text}}</span>
+    </div>
+    <div class="course_content">
+      <p class="title_course">活动简介</p>
+      <div class="courseAmount" v-for="item in courseMsg" :key="item.index" :id="item.index">
+        <span class="left label">{{item.label}}:</span>
+        <span class="left info">{{item.info}}</span>
+        <div style="clear:both;"></div>
+      </div>     
+    </div>
+    <div class="course_content">
+      <p class="title_course">活动详情</p>
+      <div class="course_detail">
+        <img src="../assets/course_detail.png">
       </div>
-      <Divider></Divider>
-      <router-view></router-view>
+    </div>
+    <div class="course_content">
+      <p class="title_course">培训机构</p>
+      <div class="course_content">
+        <div class="course_img_training left">
+          <img src="../assets/courseLogo.jpg">
+        </div>
+        <div class="training_info right">
+          <p>机构名称</p>
+          <div class="tags">
+            <span class="training">已认证</span>
+            <span class="training">扬琴培训</span>
+          </div>
+          <div class="trainingIntroduction">
+            <span class="left">机构信息，简介说明，机构信息，简介说明</span>
+            <span class="right">1.2KM</span>
+          </div>
+        </div>
+        <div style="clear:both;"></div>
+      </div>
+    </div>
     <div class="footer">
       <Divider></Divider>
       <div class="leftBtn left">
@@ -72,7 +95,7 @@
         <div class="btnImg">
           <img src="../assets/more.png">
         </div>
-        <p>更多课程</p>
+        <p>更多活动</p>
       </div>
       <div class="leftBtn left">
         <div class="btnImg">
@@ -80,7 +103,7 @@
         </div>
         <p>咨询</p>
       </div>
-      <div class="rightBtn right">立刻报名</div>
+      <div class="rightBtn right">已结束</div>
     </div>
   </div>
 </template>
@@ -98,11 +121,11 @@ export default {
         },
         {
           src: "../static/checked.png",
-          info: "底价承诺"
+          info: "认证机构"
         },
         {
           src: "../static/checked.png",
-          info: "消费保障"
+          info: "认证机构"
         }
       ],
       tabs: [
@@ -143,24 +166,7 @@ export default {
           label: "教学地点",
           info: "宝安区松岗平安路十号山美新村大厦二楼小白鸽少儿舞蹈团"
         }
-      ],
-      tabBars: [
-        {
-          index: 0,
-          text: "简介",
-          class: "current"
-        },
-        {
-          index: 1,
-          text: "课程",
-          class: ""
-        },
-        {
-          index: 2,
-          text: "活动",
-          class: ""
-        }
-      ],
+      ]
     };
   },
   created: function() {},
@@ -174,12 +180,6 @@ export default {
     },
     goBack(){
       this.$router.go(-1);
-    },
-     changeStyle(index) {
-      for (let i in this.tabBars) {
-        this.tabBars[i].class = "";
-      }
-      this.tabBars[index].class = "current";
     }
   }
 };
@@ -196,8 +196,5 @@ export default {
 .seek,.signup{
   color: #999;
 }
-.rightBtn>.right{
-  background-color:rgb(74,210,84);
-}
 /**/
-</style>>
+</style>

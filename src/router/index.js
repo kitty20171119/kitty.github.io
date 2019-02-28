@@ -3,16 +3,18 @@ import Router from 'vue-router'
 import login from '@/components/login'
 import index from '@/components/index'
 import search from '@/components/search'
-import activity from '@/components/activity'
+import activityList from '@/components/activityList'
 import student from '@/components/student'
 import courseList from '@/components/courseList'
 import courseDetail from '@/components/courseDetail'
+import courseDetail_schedule from '@/components/courseDetail_schedule'
 import parents from '@/components/parents'
+import messageList from '@/components/messageList'
 import messageDetail from '@/components/messageDetail'
 import organizationDetail from '@/components/organizationDetail'
 import brifeIntroduction from '@/components/brifeIntroduction'
 import tabBar from '@/components/common/tabBar'
-import activityThree from '@/components/activityThree'
+import activityDetail from '@/components/activityDetail'
 import curriculumActivity from '@/components/curriculumActivity'
 Vue.use(Router)
 
@@ -44,9 +46,9 @@ export default new Router({
       component: student
     },
     {
-      path: '/activity',
-      name: 'activity',
-      component: activity
+      path: '/activityList',
+      name: 'activityList',
+      component: activityList
     },
     {
       path: '/courseList',
@@ -56,12 +58,24 @@ export default new Router({
     {
       path: '/courseDetail',
       name: 'courseDetail',
-      component: courseDetail
+      component: courseDetail,
+      children:[
+        {
+          path:'/courseDetail_schedule',
+          name:'courseDetail_schedule',
+          component:courseDetail_schedule
+        },
+      ]
     },
     {
       path: '/parents',
       name: 'parents',
       component: parents
+    },
+    {
+      path:'/messageList',
+      name:'messageList',
+      component:messageList
     },
     {
       path: '/messageDetail',
@@ -86,9 +100,9 @@ export default new Router({
       ]
     },
     {
-      path: '/activityThree',
-      name: 'activityThree',
-      component: activityThree
+      path: '/activityDetail',
+      name: 'activityDetail',
+      component: activityDetail
     }
   ]
 })

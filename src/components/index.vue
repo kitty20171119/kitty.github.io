@@ -18,7 +18,7 @@
           </div>
         </CarouselItem>
       </Carousel>
-      <div class="searchBox left" >
+      <div class="searchBox left">
         <img src="../assets/search.png">
         <input type="text" placeholder="搜索课程、机构" @focus="goSearch">
       </div>
@@ -30,7 +30,9 @@
       <div class="noticeMsg left">
         <img src="../assets/notice.png">
       </div>
-      <span class="left info">优品汇成为中国最大家电零售商</span>
+      <ul class="info" ref="con_con" :class="{anim:animate==true}">
+        <li class="info" v-for="item in messages" :key="item.id">{{item.title}}</li>
+      </ul>
       <span class="right">
         <img src="../assets/info1.png">
       </span>
@@ -56,20 +58,32 @@
         <div style="clear:both"></div>
       </div>
       <div class="activity_container">
-        <div class="activity_img left">
-          <p class="activity_img_title">标题标题标题</p>
-          <p class="activity_img_info">描述描述描述</p>
-          <img src="../assets/activity1.png">
-        </div>
-        <div class="activity_img left">
-          <p class="activity_img_title">标题标题标题</p>
-          <p class="activity_img_info">描述描述描述</p>
-          <img src="../assets/activity2.png">
-        </div>
-        <div class="activity_img left">
-          <p class="activity_img_title">标题标题标题</p>
-          <p class="activity_img_info">描述描述描述</p>
-          <img src="../assets/activity1.png">
+        <div class="activity_content">
+          <div class="activity_img left">
+            <p class="activity_img_title">标题标题标题</p>
+            <p class="activity_img_info">描述描述描述</p>
+            <img src="../assets/activity1.png">
+          </div>
+          <div class="activity_img left">
+            <p class="activity_img_title">标题标题标题</p>
+            <p class="activity_img_info">描述描述描述</p>
+            <img src="../assets/activity2.png">
+          </div>
+          <div class="activity_img left">
+            <p class="activity_img_title">标题标题标题</p>
+            <p class="activity_img_info">描述描述描述</p>
+            <img src="../assets/activity1.png">
+          </div>
+          <div class="activity_img left">
+            <p class="activity_img_title">标题标题标题</p>
+            <p class="activity_img_info">描述描述描述</p>
+            <img src="../assets/activity1.png">
+          </div>
+          <div class="activity_img left">
+            <p class="activity_img_title">标题标题标题</p>
+            <p class="activity_img_info">描述描述描述</p>
+            <img src="../assets/activity1.png">
+          </div>
         </div>
         <div style="clear:both;"></div>
       </div>
@@ -93,7 +107,6 @@
           </div>
         </div>
         <div style="clear:both;"></div>
-        <Divider></Divider>
       </div>
     </div>
     <p class="checkMore">查看更多机构</p>
@@ -120,6 +133,7 @@
 export default {
   data() {
     return {
+      animate: false,
       value: 0,
       setting: {
         autoplay: false,
@@ -136,7 +150,7 @@ export default {
         },
         {
           id: 1,
-          src: "../static/2.jpg"
+          src: "../static/1.jpg"
         }
       ],
       icons: [
@@ -198,7 +212,7 @@ export default {
           name: "机构名称机构名称机构名称",
           info: "机构信息简介说明机构信息简介说明",
           distance: "1.2KM",
-          src: "../static/courseLogo.jpg",
+          src: "../static/list.png",
           tagLeft: "已认证",
           tagRight: "扬琴培训"
         },
@@ -207,7 +221,7 @@ export default {
           name: "机构名称机构名称机构名称",
           info: "机构信息简介说明机构信息简介说明",
           distance: "1.2KM",
-          src: "../static/courseLogo.jpg",
+          src: "../static/list.png",
           tagLeft: "已认证",
           tagRight: "课外辅导"
         },
@@ -216,7 +230,7 @@ export default {
           name: "机构名称机构名称机构名称",
           info: "机构信息简介说明机构信息简介说明",
           distance: "1.2KM",
-          src: "../static/courseLogo.jpg",
+          src: "../static/list.png",
           tagLeft: "已认证",
           tagRight: "扬琴培训"
         }
@@ -279,8 +293,29 @@ export default {
           text: "我的",
           isCurrent: false
         }
+      ],
+      messages: [
+        {
+          id: 0,
+          title: "优品汇成为中国最大家电零售商"
+        },
+        {
+          id: 1,
+          title: "这是第二条消息"
+        },
+        {
+          id: 2,
+          title: "这是第三条消息"
+        },
+        {
+          id: 3,
+          title: "这是第四条消息"
+        }
       ]
     };
+  },
+  created: function() {
+    setInterval(this.scroll, 1000);
   },
   methods: {
     changeStyle(index) {
@@ -289,8 +324,20 @@ export default {
       }
       this.items[index].isCurrent = true;
     },
-    goSearch(){
-      this.$router.push('/search');
+    goSearch() {
+      this.$router.push("/search");
+    },
+    scroll() {
+      let con_con = this.$refs.con_con;
+      con_con.style.marginTop = "-15px";
+      this.animate = !this.animate;
+      var that = this; // 在异步函数中会出现this的偏移问题，此处一定要先保存好this的指向
+      setTimeout(() => {
+        that.messages.push(that.messages[0]);
+        that.messages.shift();
+        con_con.style.marginTop = "0px";
+        that.animate = !that.animate; // 这个地方如果不把animate 取反会出现消息回滚的现象，此时把ul 元素的过渡属性取消掉就可以完美实现无缝滚动的效果了
+      }, 2000);
     }
   }
 };
@@ -370,7 +417,13 @@ export default {
 }
 .scrollTitle > .info {
   width: 50%;
+  height: 1rem;
+  overflow: hidden;
 }
+.info > li {
+  height: 1rem;
+}
+
 .scrollTitle > .right {
   width: 30%;
   display: flex;
@@ -386,13 +439,13 @@ export default {
 }
 .items {
   width: 20%;
-  height: 5rem;
+  height: 5.5rem;
   float: left;
   overflow: hidden;
 }
 .items > .icon {
   width: 100%;
-  height: 3rem;
+  height: 3.5rem;
   margin-top: 5px;
   overflow: hidden;
   display: flex;
@@ -408,14 +461,15 @@ export default {
 .icons {
   width: 100%;
   background-color: #fff;
+  padding-bottom: 10px;
 }
 .icon > img {
   width: 65%;
 }
 .activity_img {
-  width: 40%;
+  width: 6rem;
   height: 4rem;
-  margin-left: 5%;
+  margin-left: 1rem;
   position: relative;
   overflow: hidden;
 }
@@ -423,10 +477,6 @@ export default {
   width: 100%;
 }
 .activity_container {
-  height: 4rem;
-  overflow-y: hidden;
-  overflow-x: scroll;
-  display: flex;
 }
 .activity_title {
   margin-left: 5%;
@@ -464,7 +514,6 @@ export default {
 }
 .course_content > p {
   width: 90%;
-  padding: 10px;
 }
 .courseAmount {
   width: 90%;
@@ -523,22 +572,21 @@ export default {
   border-radius: 10px;
 }
 .course_img_training {
-  width: 40%;
+  width: 30%;
   overflow: hidden;
 }
 .training_info {
-  width: 55%;
+  width: 60%;
 }
 .training_info > img {
   width: 100%;
 }
 .training_info > p {
-  font-size: 15px;
+  font-size: 13px;
 }
 .trainingIntroduction {
   width: 100%;
   display: flex;
-  margin-top: 10px;
 }
 .trainingIntroduction > .left {
   width: 100%;
@@ -548,6 +596,7 @@ export default {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  font-size: 11px;
 }
 .trainingIntroduction > .right {
   justify-content: flex-end;
@@ -557,12 +606,12 @@ export default {
 .tags > .training {
   width: 4rem;
   height: 1.3rem;
-  background-color: rgb(255, 205, 182);
+  background-color: rgb(252, 238, 233);
   color: rgb(219, 88, 61);
   text-align: center;
   line-height: 1.3rem;
   margin: 5px 5px 5px 0;
-  padding: 5px;
+  /* padding: 5px;*/
 }
 .footer {
   width: 100%;
@@ -610,11 +659,12 @@ export default {
   width: 37%;
 }
 .course_img_training > img {
-  width: 75%;
+  width: 100%;
   border-radius: 8px;
 }
 .training_info > .tags {
-  margin-top: 10px;
+  height: 2.5rem;
+  margin-top: 0.5rem;
 }
 .checkMore {
   text-align: center;
@@ -622,11 +672,18 @@ export default {
   margin-bottom: 4rem;
   line-height: 2rem;
   background: #fff;
-
 }
 .activity_container {
   position: relative;
   color: #fff;
+  width: 100%;
+  height: 4rem;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+.activity_content {
+  width: 1000px;
 }
 .activity_img_title,
 .activity_img_info {
@@ -646,5 +703,14 @@ export default {
   top: 30px;
   font-size: 8px;
 }
-
+.demo-carousel {
+  width: 100%;
+  height: 15rem;
+  overflow: hidden;
+}
+.ivu-carousel-dots-inside {
+  display: block;
+  position: absolute;
+  bottom: -78px;
+}
 </style>

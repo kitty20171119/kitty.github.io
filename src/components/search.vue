@@ -213,11 +213,11 @@ export default {
   margin-top: 15px;
 }
 .tags > .training {
-  width: 1rem;
+ /* width: 1rem;
   height: 1rem;
   padding: 3px 7px;
   border-radius: 2px;
-  color: rgb(232, 84, 30);
+  color: rgb(232, 84, 30);*/
   background-color: rgb(252, 238, 233);
 }
 .footer_bottom {

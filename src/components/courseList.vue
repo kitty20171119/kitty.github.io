@@ -3,7 +3,6 @@
     <div class="commonHeader">
       <span class="back">
         <Icon type="ios-arrow-back"/>
-        <span>返回</span>
       </span>
       <p class="center">小学</p>
       <span class="more">更多</span>
@@ -45,15 +44,16 @@
                   <div class="courseTitle right">
                     {{item.info}}
                     <span class="tagMsg">{{item.tag}}</span>
+                       <span class="left num">{{item.num}}</span>
                   </div>
                   <div style="clear:both;"></div>
-                  <Divider/>
                 </div>
                 <div class="course_footer">
-                  <span class="left num">{{item.num}}</span>
-                  <span class="right isFree">{{item.isFree}}</span>
+               
+                  <!--<span class="right isFree">{{item.isFree}}</span>-->
                   <div style="clear:both;"></div>
                 </div>
+                 <Divider/>
               </Cell>
             </CellGroup>
           </Card>
@@ -87,6 +87,13 @@ export default {
       },
       courseItem: [
         {
+          info: "《小学阅读高分秘籍》2天阅读训练营",
+          src: "../static/course.png",
+          tag: "训练营",
+          num: "2节课，2768人报名",
+          isFree: "免费"
+        },
+          {
           info: "《小学阅读高分秘籍》2天阅读训练营",
           src: "../static/course.png",
           tag: "训练营",
@@ -131,13 +138,16 @@ export default {
 };
 </script>
 <style>
+.commonHeader>.center{
+  background: #fff;
+}
 .carousel {
   width: 100%;
   height: 10rem;
   overflow: hidden;
 }
 .courseImg {
-  width: 40%;
+  width: 35%;
   overflow: hidden;
 }
 .courseImg > img {
@@ -148,11 +158,15 @@ export default {
   border-radius: 3px;
 }
 .course_head > .courseTitle {
-  width: 55%;
+  width: 60%;
   white-space: normal;
+  color: #000;
+}
+.courseTitle>.num{
+  color: #999;
 }
 .ivu-cell {
-  padding: 0 10px;
+  padding: 0;
 }
 .ivu-divider-horizontal {
   margin: 10px 0;
@@ -164,7 +178,7 @@ export default {
 }
 .tagMsg {
   color: rgb(221, 102, 100);
-  border: 1px solid rgb(221, 102, 100);
+  background-color: rgb(252,238,233);
   display: block;
   width: 55px;
   border-radius: 4px;
@@ -190,7 +204,11 @@ export default {
   height: 10px;
   border-radius: 50%;
 }
-.ivu-carousel:hover .ivu-carousel-arrow-hover {
+/*去掉右边箭头*/
+.ivu-cell-arrow{
   opacity: 0;
+}
+.ivu-carousel:hover .ivu-carousel-arrow-hover {
+  
 }
 </style>

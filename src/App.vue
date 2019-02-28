@@ -68,6 +68,7 @@ export default {
   overflow: hidden;
   display: flex;
   align-items: center;
+  color:rgb(26, 188, 156);
 }
 .more > img {
   width: 55%;
@@ -86,6 +87,11 @@ export default {
   background: #f9f9f9;
 }
 /*iview*/
+/*轮播图默认样式*/
+.ivu-carousel{
+  width: 100%;
+  height: 15rem;
+}
 /*设置图片大小*/
 .demo-carousel > img {
   width: 100%;
@@ -94,20 +100,36 @@ export default {
   background-color: #fff;
 }
 .ivu-tabs-ink-bar {
-  color: rgb(242, 181, 182);
-  background-color: rgb(242, 181, 182);
+  color: rgb(26, 188, 156);
+  background-color:rgb(26, 188, 156);
 }
 .ivu-tabs-nav .ivu-tabs-tab-active {
-  color: rgb(242, 181, 182);
+  color:rgb(26, 188, 156);
 }
 .ivu-tabs-nav .ivu-tabs-tab-active:hover {
-  color: rgb(242, 181, 182);
+  color: rgb(26, 188, 156);
 }
 .ivu-carousel:hover .ivu-carousel-arrow-hover {
   opacity: 0;
 }
 .margin {
   margin: 10px;
+}
+/*iview改变默认样式*/
+.ivu-badge {
+  position: absolute;
+  display: inline-block;
+  left: 67px;
+  top: 1px;
+}
+.ivu-badge-count {
+  height: 15px;
+  line-height: 13px;
+  padding: 0 3px;
+  font-size: 5px;
+ /* position: absolute;
+  left: 0px;
+  top: -18px;*/
 }
 /*顶部导航样式*/
 .tabBar {
@@ -136,8 +158,8 @@ export default {
   border-bottom: 2px solid rgb(62, 186, 69);
 }
 /*设置路由样式*/
-a:hover{
-  color: ""
+a:hover {
+  color: "";
 }
 .router-link-exact-active {
   width: 33.3%;
@@ -330,7 +352,7 @@ a:hover{
 }
 .course_img_training {
   width: 35%;
-  border-radius: 15px;
+  border-radius: 5px;
   overflow: hidden;
 }
 .training_info {
@@ -350,7 +372,6 @@ a:hover{
 .trainingIntroduction {
   width: 100%;
   display: flex;
-  margin-top: 10px;
 }
 .trainingIntroduction > .left {
   width: 100%;

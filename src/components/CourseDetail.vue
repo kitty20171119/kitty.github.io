@@ -50,31 +50,32 @@
       <div style="clear:both;"></div>
     </div>-->
       <div class="tabBar">
-        <span
+        <router-link
           class="classify threeItem"
           v-bind:class="item.class"
           @click="changeStyle(item.index)"
           :key="item.id"
           v-for="item in tabBars"
-        >{{item.text}}</span>
+          :to="item.path"
+        >{{item.text}}</router-link>
       </div>
       <Divider></Divider>
       <router-view></router-view>
     <div class="footer">
       <Divider></Divider>
-      <div class="leftBtn left">
+      <div class="leftBtn btn_courseDetail left">
         <div class="btnImg">
           <img src="../assets/detail_home.png">
         </div>
         <p>首页</p>
       </div>
-      <div class="leftBtn left">
+      <div class="leftBtn btn_courseDetail left">
         <div class="btnImg">
           <img src="../assets/more.png">
         </div>
         <p>更多课程</p>
       </div>
-      <div class="leftBtn left">
+      <div class="leftBtn btn_courseDetail left">
         <div class="btnImg">
           <img src="../assets/smile.png">
         </div>
@@ -85,7 +86,11 @@
   </div>
 </template>
 <script>
+import courseDetail_schedule from '@/components/courseDetail_schedule'
 export default {
+  components:{
+    courseDetail_schedule,
+  },
   data() {
     return {
       value1: 0,
@@ -105,21 +110,24 @@ export default {
           info: "消费保障"
         }
       ],
-      tabs: [
+      tabBars: [
         {
           index: 0,
-          title: "课程表",
-          class: "current"
+          text: "课程表",
+          class: "",
+          path:'/courseDetail_schedule'
         },
         {
           index: 1,
-          title: "课程详情",
-          class: ""
+          text: "课程详情",
+          class: "",
+          path:'/'
         },
         {
           index: 2,
-          title: "培训机构",
-          class: ""
+          text: "培训机构",
+          class: "",
+          path:'',
         }
       ],
       courseMsg: [
@@ -144,34 +152,11 @@ export default {
           info: "宝安区松岗平安路十号山美新村大厦二楼小白鸽少儿舞蹈团"
         }
       ],
-      tabBars: [
-        {
-          index: 0,
-          text: "简介",
-          class: "current"
-        },
-        {
-          index: 1,
-          text: "课程",
-          class: ""
-        },
-        {
-          index: 2,
-          text: "活动",
-          class: ""
-        }
-      ],
+     
     };
   },
   created: function() {},
   methods: {
-    changeView(index) {
-      //alert(e.path[0].id);
-      for (let i in this.tabs) {
-          this.tabs[i].class="";
-      }
-      this.tabs[index].class = "current";
-    },
     goBack(){
       this.$router.go(-1);
     },
@@ -199,5 +184,12 @@ export default {
 .rightBtn>.right{
   background-color:rgb(74,210,84);
 }
+.btn_courseDetail{
+  width: 20%;
+}
+ .router-link-exact-active.current{
+   color: rgb(62, 186, 69);
+   background-clip: rgb(62, 186, 69);
+ }
 /**/
 </style>>
